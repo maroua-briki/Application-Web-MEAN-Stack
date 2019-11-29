@@ -4,3 +4,4 @@ Portail web pour la gestion d'une plateforme DevOps
       * client: frontend 
       * serveur : backend (les parties authentification et gestion utilisateurs)
 * technologies : Angular8, angular material, NodeJS, Express, PassportJS, JWT
+
