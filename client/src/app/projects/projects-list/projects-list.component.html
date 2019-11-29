@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="stacksCount">
+      <th mat-header-cell *matHeaderCellDef> stacksCount </th>
+      <td mat-cell *matCellDef="let element"> {{element.stacksCount}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="clustersCount">
+      <b>
+        <th mat-header-cell *matHeaderCellDef> clustersCount </th>
+      </b>
+      <td mat-cell *matCellDef="let element"> {{element.clustersCount}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nodesCount">
+      <th mat-header-cell *matHeaderCellDef> nodesCount </th>
+      <td mat-cell *matCellDef="let element"> {{element.nodesCount}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="volumesCount">
+      <th mat-header-cell *matHeaderCellDef> volumesCount </th>
+      <td mat-cell *matCellDef="let element"> {{element.volumesCount}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" class="btn btn-link" style="font-family:Arial sans-serif;">see more</button>
+        </td></ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

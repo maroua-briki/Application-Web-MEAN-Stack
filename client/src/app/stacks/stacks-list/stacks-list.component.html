@@ -1,0 +1,39 @@
+
+<div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container> 
+      
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="expandedDetail">
+            <mat-cell *matCellDef="let detail"> 
+              The symbol for {{detail.element.name}} is {{detail.element.description}}
+            </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"
+                  matRipple 
+                  class="element-row" 
+                  [class.expanded]="expandedElement == row"
+                  (click)="expandedElement = row"></mat-row>
+          <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+                  [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+                  style="overflow: hidden"> 
+          </mat-row>
+        </mat-table>
+      </div>
+      
+      
+    

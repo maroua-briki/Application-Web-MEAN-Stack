@@ -1,0 +1,149 @@
+
+<div class="card">
+  <h5 class="card-header">Fill your azure info</h5>
+  <div class="card-body">
+
+    <form [formGroup]="azureForm"  (change)="formChanged()" class="form">
+
+      <mat-grid-list cols="3" [cols]="breakpoint" rowHeight="85px" 
+      (window:resize)="onResize($event)">
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+                <input matInput formControlName="clientId" placeholder="clientId">
+                <mat-error *ngIf="azureForm.controls.clientId.hasError('required')">
+                    Please enter your id
+                  </mat-error>
+            </mat-form-field>
+          
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+
+            <mat-form-field class="example-full-width">
+              <input matInput formControlName="subscriptionId" placeholder="subscriptionId">
+              <mat-error *ngIf="azureForm.controls.subscriptionId.hasError('required')">
+                  Please enter your sub id
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input formControlName="tenantId" matInput placeholder="tenantId*">
+              <mat-error *ngIf="azureForm.controls.tenantId.hasError('required')">
+                  Please enter your tenant  id
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input formControlName="clientSecret" matInput placeholder="clientSecret">
+              <mat-error *ngIf="azureForm.controls.clientSecret.hasError('required')">
+                  Please enter your client secret
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input matInput formControlName="username" placeholder="username">
+              <mat-error *ngIf="azureForm.controls.username.hasError('required')">
+                  Please enter your VMusername
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input matInput placeholder="password" formControlName="password">
+              <mat-error *ngIf="azureForm.controls.password.hasError('required')">
+                  Please enter your VMpassword
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+
+            <mat-form-field  class="example-full-width">
+              <input formControlName="location" matInput placeholder="location">
+              <mat-error *ngIf="azureForm.controls.location.hasError('required')">
+                  Please enter your location
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input formControlName="prefix" matInput placeholder="prefix">
+              <mat-error *ngIf="azureForm.controls.prefix.hasError('required')">
+                  Please enter your prefix
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field  class="example-full-width">
+              <input formControlName="vmsize" matInput placeholder="vmsize">
+              <mat-error *ngIf="azureForm.controls.vmsize.hasError('required')">
+                  Please enter vm size
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="text-inside">
+        <mat-form-field  class="example-full-width">
+          <input formControlName="vmNumber" matInput placeholder="vmNumber">
+          <mat-error *ngIf="azureForm.controls.vmNumber.hasError('required')">
+              Please enter your vm's number
+            </mat-error>
+        </mat-form-field>
+        </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="text-inside">
+        <mat-form-field  class="example-full-width">
+          <input formControlName="offer" matInput placeholder="offer">
+        </mat-form-field>
+        </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="text-inside">
+        <mat-form-field  class="example-full-width">
+          <input formControlName="sku" matInput placeholder="sku">
+        </mat-form-field>
+        </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="text-inside">
+        <mat-form-field  class="example-full-width">
+          <input formControlName="version" matInput placeholder="version">
+        </mat-form-field>
+        </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+          <div class="button-row">
+              <button mat-raised-button color="warn"  (click)="openDialog()">Clear</button>
+    
+            <button mat-raised-button color="primary" [disabled]="!azureForm.valid" class="Update-btn" (click)="onSubmit()
+            " type="submit">Submit</button>
+            <button *ngIf="" mat-raised-button color="primary" [disabled]="!azureForm.valid" class="Update-btn" (click)="OnDeploy()" 
+            type="submit">Deploy Now</button>
+          </div>
+    </form>
+  </div>
+</div>

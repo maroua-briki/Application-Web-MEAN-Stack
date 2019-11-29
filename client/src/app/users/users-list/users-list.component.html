@@ -1,0 +1,48 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="usersList">
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> FullName </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> Role </th>
+      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" class="btn btn-outline-danger"
+          (click)="deleteUser(element, element.index)">Delete</button>
+
+        &nbsp;<button type="button" class="btn btn-outline-warning" (click)="editUser(element._id)">Edit</button>
+
+
+
+        <!-- <button mdbBtn type="button" color="danger" rounded="true" outline="true" mdbWavesEffect>Danger</button> -->
+        <!-- <button type="button" class="btn btn-default btn-rounded">Default</button>
+
+          <button type="button" class="btn btn-info">Info</button>
+
+          <button type="button" class="btn btn-warning">Warning</button>
+          <button type="button" class="btn btn-warning btn-rounded">Warning</button>
+          <button type="button" class="btn btn-success btn-rounded">Success</button>
+
+ -->
+
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

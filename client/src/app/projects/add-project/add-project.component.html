@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <b> First, select your platform</b>
+  </div>
+  <div class="card-body">
+      <!-- (click)="redirectToLink(appitems.link)" -->
+    <ng-material-multilevel-menu [configuration]='config' [items]='appitems' (selectedItem)="selectedItem($event)"
+    (selectedLabel)="selectedLabel($event)"  >
+  </ng-material-multilevel-menu>
+      </div>
+</div>
+<router-outlet></router-outlet>
